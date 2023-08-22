@@ -70,3 +70,7 @@ canvas
 canvas |> 
   as.array(value = islands) |>
   image(axes = FALSE, asp = 1, useRaster = TRUE)
+
+canvas |> 
+  as.array(value = islands) |>
+  render(zscale = .05)
