@@ -1,8 +1,11 @@
-# Fancy noise from createMap.r script
+# Fancy noise from createMap.r script. 
+# This is probably the most complex script.
 generate_fancy_noise <- function(x, y, seed = NULL) {
-  if(!is.null(seed)) {
+   # Set the seed value from the `seed` object in setUp_canvas.r 
+   if(!is.null(seed)) {
     set.seed(seed)
-  }
+   }
+  # Create z heights that rayshader will use to render.
   z <- ambient::fracture(
     noise = ambient::gen_worley,
     fractal = ambient::billow,

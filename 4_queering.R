@@ -45,32 +45,3 @@ canvas |>
   as.array(value = islands) |>
   image(axes = FALSE, asp = 1, useRaster = TRUE)
 
-discretise <- function(x, n) {
-  round(ambient::normalise(x) * n) / n
-}
-
-grid <- new_grid() 
-coords <- generate_curl(grid$x, grid$y, seed = seed)
-
-canvas <- grid |> 
-  dplyr::mutate(
-    curl_x = coords$x |> discretise(50), 
-    curl_y = coords$y |> discretise(50),
-    height = generate_fancy_noise(curl_x, curl_y, seed = seed) |> 
-      discretise(50),
-    islands = dplyr::if_else(
-      condition = height < median(height),
-      true = median(height),
-      false = height
-    )
-  ) 
-
-canvas
-
-canvas |> 
-  as.array(value = islands) |>
-  image(axes = FALSE, asp = 1, useRaster = TRUE)
-
-canvas |> 
-  as.array(value = islands) |>
-  render(zscale = .05)

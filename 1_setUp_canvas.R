@@ -29,7 +29,7 @@ generate_simplex <- function(x, y, seed = NULL) {
   )
 }
 
-# Create canvas
+# Create canvas. This applies the generate_simplex function to the new_grid function.
 canvas <- new_grid() |> 
   dplyr::mutate(paint = generate_simplex(x, y, seed = seed))
 
