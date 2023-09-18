@@ -1,5 +1,5 @@
 # Set seed count
-seed <- 11
+seed <- 16
 
 # Build simple grid 
 new_grid <- function(n = 1000) {
