@@ -11,8 +11,9 @@ new_grid <- function(n = 1000) {
 
 new_grid()
 
-# Function to create spatial noise
-generate_simplex <- function(x, y, seed = NULL) {
+# Function to create spatial noise. The parameters in this function are the type of noise desired. 
+# These are the contents of the ambient package. 
+generate_noise <- function(x, y, seed = NULL) {
   if(!is.null(seed)) {
     set.seed(seed)
   }

@@ -1,4 +1,27 @@
-# Full script ---- IN PROGRESS!!! BREAK INTO SCRIPTS FROM PARENT SCRIPTS
+# Full script ---- See scripts folder for individual steps.
+
+# Create list of necessary packages
+libs <- c("tidyverse",
+          "ambient",
+          "rayshader")
+
+# Query whether packages are installed
+installed_libs <- libs %in% rownames(
+  installed.packages()
+)
+
+if(any(installed_libs == FALSE)){
+  install.packages(
+    libs[!installed_libs]
+  )
+}
+
+# Load packages in R-session
+invisible(lapply(libs, 
+                 library, 
+                 character.only = TRUE)
+)
+
 # Set seed count
 seed <- sample(1:100, 1)
 
@@ -13,8 +36,7 @@ new_grid <- function(n = 1000) {
 new_grid()
 
 # Function to create spatial noise
-generate_fancy_noise <- function(x, y, seed = NULL) {
-  # Set the seed value from the `seed` object in setUp_canvas.r 
+generate_noise <- function(x, y, seed = NULL) {
   if(!is.null(seed)) {
     set.seed(seed)
   }

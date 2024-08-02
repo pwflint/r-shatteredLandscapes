@@ -1,5 +1,5 @@
 # Fancy noise from createMap.r script. 
-# This is probably the most complex script.
+# This is probably the most complex script. It creates a pattern similar to continental accretion. 
 generate_fancy_noise <- function(x, y, seed = NULL) {
    # Set the seed value from the `seed` object in setUp_canvas.r 
    if(!is.null(seed)) {
